@@ -10,18 +10,18 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 	int w;//wiersze
 	int k;//kolumny
 	double suma= 0;
-	if(mat->r != mat->c)
+	if(mat->r != mat->c)//sprawdzenie czy kwadratowa
 		return 2;
 	w= mat -> r;
 	k= mat -> c;
 
-	for(i= 0;i<k;i++)
+	for(i= 0;i<k;i++)//zerowy element na diagonali
 	{
 		if( mat->data[i][i]==0)
 			return 1;
 	}
 	
-	for(i= w-1; w>=0; w--)
+	for(i= w-1; w>=0; w--)//eliminacja wsteczna
 	{
 		for(j= i+1; j<k; j++)
 			suma += mat->data[i][j] * x->data[j][0];
