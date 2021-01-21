@@ -27,6 +27,5 @@ int  backsubst(Matrix *x, Matrix *mat, Matrix *b) {
 			suma += mat->data[i][j] * x->data[j][0];
 		x -> data[i][0] = (b -> data[i][0] - suma) / mat -> data[i][i];
 	}
-	
 	return 0;
 }
