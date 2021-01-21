@@ -20,7 +20,7 @@ int wybor(int k, Matrix *mat, Matrix *b)
 				max = mat->data[j][i];
 				w = j;//zmieniam nr wiersza ktory wybrany
 			}
-	//zamien wiersze
+	//zamien wiersze zeby sprobowac usunac zero na diagonali
 	if (max > fabs(mat->data[i][i])){
 		for(i;i < mat->c; i++)
 		{
@@ -28,12 +28,12 @@ int wybor(int k, Matrix *mat, Matrix *b)
 			mat->data[w][i] = mat->data[k][i];
 			mat->data[k][i] = pom;
 		}
-		pom = b->data[w][0];
+		pom = b->data[w][0];//zamiana w wektorze z wyrazami wolnymi
 		b->data[w][0] = b->data[k][0];
 		b->data[k][0] = pom;
 	}
 	if(mat->data[k][k] == 0 ) 
-		return -1; //nie udalo sie zamienic
+		return -1; //nie udalo sie pozbyc zera
 	else 
 		return 0;
 }
