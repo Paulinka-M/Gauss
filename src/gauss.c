@@ -1,4 +1,5 @@
 #include "gauss.h"
+#include "element_glowny.h"
 #include <math.h>
 /**
  * Zwraca 0 - elimnacja zakonczona sukcesem
@@ -10,7 +11,9 @@ int eliminate(Matrix *mat, Matrix *b) {
 	int m = sizeof ( mat->data ) / sizeof ( mat->data[0] );
 	int n = sizeof ( mat->data ) / sizeof ( mat->data[0][0] );
 	n /= m;	// m - liczba wierszy, n - liczba kolumn	
-
+	for(int k = 0; k < mat->c; k++)
+			if(wybor(k, mat, b)==-1)//wybor elementu glownego
+				return 1;
 	for ( i = 0 ; i < m - 1  ; i++ ) {
 		for ( k = i + 1 ; k < m; k++ ) {
 			if ( fabs ( mat->data[i][i] ) < fabs( mat->data[k][i] ) ){
