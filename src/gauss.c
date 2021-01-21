@@ -7,7 +7,6 @@
 int eliminate(Matrix *mat, Matrix *b) {
 
 	int i, j, k; // iteratory 
-
 	int m = sizeof ( mat->data ) / sizeof ( mat->data[0] );
 	int n = sizeof ( mat->data ) / sizeof ( mat->data[0][0] );
 	n /= m;	// m - liczba wierszy, n - liczba kolumn	
